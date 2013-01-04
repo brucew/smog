@@ -15,7 +15,7 @@ module DynamicAttributes
 
   #-- Begin init approach --
   def initialize_dynamic_attributes
-    init_vals = {:integer => 0, :date => Time.now, :string => ""}
+    init_vals = {:integer => 0, :date => Time.now.midnight, :string => ""}
     dynamic_attributes.each do |attr|
       self[attr.name] = init_vals[attr.type] if self[attr.name].nil?
     end
